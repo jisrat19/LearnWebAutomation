@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -79,16 +81,19 @@ public class Test_Sephora {
 
     @Test
     public static void checkSephoraSkinCareClick() throws InterruptedException {
-
-        driver.findElement(By.xpath("//*[@id=\"top_nav_drop_2_trigger\"]")).click();
+        // user click on makeup
+        Thread.sleep(40000);
+      //  Actions actions= new Actions(driver);
+      //  actions.doubleClick(driver.findElement(By.xpath("//*[@id=\"top_nav_drop_2_trigger\"]"))).perform();
+      driver.findElement(By.xpath("//*[@id=\"top_nav_drop_2_trigger\"]")).click();
         Thread.sleep(4000);
-        driver.findElement(By.xpath("//*[@id=\"top_nav_drop_2_trigger\"]")).click();
+       driver.findElement(By.xpath("//*[@id=\"top_nav_drop_2_trigger\"]")).click();
         Thread.sleep(4000);
         String expectedTest = "Makeup";
         String actualText = driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[2]/div/div[1]")).getText();
+        System.out.println("actual text "+actualText);
 
         if (actualText.equals(expectedTest)) {
-
             System.out.println("Test case pass");
         } else {
             System.out.println("Test case fail");
@@ -153,9 +158,10 @@ public class Test_Sephora {
         // user is able to click on the MakeUp button in the homepage
         driver.findElement(By.xpath("//*[@id=\"top_nav_drop_2_trigger\"]")).click();
         Thread.sleep(4000);
+
         driver.findElement(By.xpath("//*[@id=\"top_nav_drop_2_trigger\"]")).click();
         Thread.sleep(6000);
-        //user is able to click on the "face" button in the makeup page
+        //user is able to click on the "foundation" button in the makeup page
         driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[2]/div/div[3]/ul/li[1]/a")).click();
         Thread.sleep(5000);
         //user is able to select the "foundation"
