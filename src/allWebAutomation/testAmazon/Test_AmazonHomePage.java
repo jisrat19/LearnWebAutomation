@@ -1,4 +1,4 @@
-package testAmazon;
+package allWebAutomation.testAmazon;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

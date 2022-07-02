@@ -1,4 +1,4 @@
-package amazon;
+package allWebAutomation.amazon;
 
 
 import org.openqa.selenium.By;
