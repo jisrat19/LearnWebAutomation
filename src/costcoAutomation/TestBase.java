@@ -1,4 +1,4 @@
-package base;
+package costcoAutomation;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,9 +12,10 @@ public class TestBase {
 
     public static WebDriver driver;
     String browserName = "chrome";
-    //String url = "https://www.amazon.com/";
-     String url = "https://www.ebay.com/";
-    //String url = "http://automationpractice.com/";
+
+     //String url = "https://www.walmart.com/";
+     String url = "https://www.costco.com/";
+
 
 
     @BeforeTest
@@ -24,7 +25,7 @@ public class TestBase {
 
     @AfterTest(alwaysRun = true)
     public void tearDownAutomation() {
-       // driver.close();
+        driver.close();
         System.out.println("***************** Automation End *******************");
     }
 

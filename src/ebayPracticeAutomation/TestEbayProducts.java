@@ -1,12 +1,10 @@
-package testAutomationPractice;
+package ebayPracticeAutomation;
 
-import base.TestBase;
 import org.testng.annotations.Test;
-
 
 import static ebayPracticeAutomation.EbayCustomXPath.*;
 
-public class TestEbayWebsite extends TestBase {
+public class TestEbayProducts extends TestBase {
 
     @Test
     public void testSearchBoxFunctionality() throws InterruptedException {
@@ -39,7 +37,7 @@ public class TestEbayWebsite extends TestBase {
     }
     @Test
     public void testRegisterFunctionality() throws InterruptedException {
-        // this method is not taking my custom-made Xpath for "Register" button
+
         registerFunctionality();
     }
     @Test
@@ -57,5 +55,25 @@ public class TestEbayWebsite extends TestBase {
 
         impressionismPaintingsProduct();
     }
+    @Test
+    public void testEbayFooterText() throws InterruptedException {
+
+        ebayFooterSectionText();
+    }
+    @Test
+    public void testDailyDealsFunctionality() throws InterruptedException {
+        dailyDealsFunctionality();
+    }
+    @Test
+    public void testDatsunCarsAndTrucks() throws InterruptedException {
+        datsunCarsAndTrucks();
+    }
+
+    @Test
+    public void testSignOutFunctionality() throws InterruptedException {
+        signOutFunctionality();
+    }
+
+
 
 }

@@ -1,6 +1,6 @@
 package ebayPracticeAutomation;
 
-import base.TestBase;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -260,7 +260,7 @@ public class EbayCustomXPath extends TestBase {
         String actualText = driver.findElement(By.xpath("//*[text()='Categories']")).getText();
         Assert.assertEquals(expectedText, actualText, "not match");
     }
-////*[@style='display: ;']//following-sibling::td[1]/ul[2]/li[2]/a[@href='https://pages.ebay.com/securitycenter/index.html']
+
     ////*[@class='gh-hide-if-nocss']/child::li[3]
 
     /**
@@ -306,17 +306,158 @@ public class EbayCustomXPath extends TestBase {
 
     }
 
+    /**
+     * This test method will verify user is able to all the information links in the footer section
+     *
+     * @throws InterruptedException
+     * @Author Israt
+     */
 
-    public static void ebayFooterSection() {
+    public static void ebayFooterSectionText() throws InterruptedException {
         //user should be able to successfully land in the Ebay homepage
         // user is able to locate in the footer section of the ebay page
         //user is able to see the text "security Center"
         driver.findElement(By.xpath("//*[@style='display: ;']//following-sibling::td[1]/ul[2]/li[2]/a[@href='https://pages.ebay.com/securitycenter/index.html']")).getText();
         //user is able to see the text "Ebay Money-Back Guarantee"
         driver.findElement(By.xpath("//*[text()='Advertise with us']//ancestor::ul//ancestor::td//preceding::td[3]/ul/li[2]")).getText();
+        //user is able to see the text "About Ebay" Text
+        driver.findElement(By.xpath("//*[text()='Advertise with us']//ancestor::ul//ancestor::td//descendant::h3")).getText();
+        //user is able to see the text "Tools & apps"
+        driver.findElement(By.xpath("//*[text()='Advertise with us']//ancestor::ul//ancestor::td//preceding::td[2]/h3[2]")).getText();
+        //user is able to see the text "Sell"
+        driver.findElement(By.xpath("//*[text()='Site map']//ancestor::ul//ancestor::td/h3[1]/a")).getText();
+        //user is able to see the text "Buy"
+        driver.findElement(By.xpath("//*[text()='Site map']//ancestor::ul//ancestor::td//preceding::td[1]/h3/a")).getText();
+        // verify user is able to the last text " eBay Sites" in the ebay footer section
+        String expectedText = "eBay Sites";
+        Thread.sleep(5000);
+        String actualText = driver.findElement(By.xpath("//*[text()='Site map']//ancestor::ul//ancestor::td//following-sibling::td[3]/child::h3[3]")).getText();
+        Assert.assertEquals(expectedText, actualText, "Not match");
 
 
     }
 
+    /**
+     * This test method will verify the "Other Deals" page different department sections in the eEbay website
+     *
+     * @throws InterruptedException
+     * @Author Israt
+     */
 
-}
+
+    public static void dailyDealsFunctionality() throws InterruptedException {
+        Thread.sleep(4000);
+        //user should be able to successfully land in the Ebay homepage
+        // user is able to click on the ""Daily Deals" button on top of the ebay Homepage
+        driver.findElement(By.xpath("//*[@class='hl-cat-nav__js-tab']//ancestor::ul//ancestor::div//ancestor::body/child::header/child::div[1]/child::ul/child::li[2]/a")).click();
+        Thread.sleep(4000);
+        //user is able to click on ""Other Deals" button
+        driver.findElement(By.xpath("//*[@class='selected navigation-desktop-with-flyout']//following::li[6]")).click();
+        // when the page load verify following "section" in text is showing
+        //user is able to see the "Deals" section
+        driver.findElement(By.xpath("//*[@class='navigation-desktop']/child::h1")).getText();
+        //user is able to see the "Toys" section
+        driver.findElement(By.xpath("//*[@class='navigation-desktop']//following-sibling::div[@class='sections-container']/child::div[2]//descendant::h2/span")).getText();
+        //user is able to see the "Coins" section
+        driver.findElement(By.xpath("//*[@class='navigation-desktop']//following-sibling::div[@class='sections-container']/child::div[3]//descendant::h2/span")).getText();
+        //user is able to see the "collectibles" section
+        driver.findElement(By.xpath("//*[@class='navigation-desktop']//following-sibling::div[@class='sections-container']/child::div[4]//descendant::h2/span")).getText();
+        //user is able to see the "Music and Gear" section
+        driver.findElement(By.xpath("//*[@class='navigation-desktop']//following-sibling::div[@class='sections-container']/child::div[5]//descendant::h2/span")).getText();
+        //user is able to see the "Luggage & Travel" section
+        driver.findElement(By.xpath("//*[@class='navigation-desktop']//following-sibling::div[@class='sections-container']/child::div[6]//descendant::h2/span")).getText();
+        //user is able to see the "Sports Fun shop" section
+        driver.findElement(By.xpath("//*[@class='navigation-desktop']//following-sibling::div[@class='sections-container']/child::div[7]//descendant::h2/span")).getText();
+        //user is able to see the "Office Furniture & Supplies" section
+        driver.findElement(By.xpath("//*[@class='navigation-desktop']//following-sibling::div[@class='sections-container']/child::div[8]//descendant::h2/span")).getText();
+        //user is able to see the "Light Equipment & Tools" section
+        driver.findElement(By.xpath("//*[@class='navigation-desktop']//following-sibling::div[@class='sections-container']/child::div[9]//descendant::h2/span")).getText();
+        //user is able to see the "Restaurant & Catering" section
+        driver.findElement(By.xpath("//*[@class='navigation-desktop']//following-sibling::div[@class='sections-container']/child::div[10]//descendant::h2/span")).getText();
+        //user is able to see the "Business & Industrial" section
+        driver.findElement(By.xpath("//*[@class='navigation-desktop']//following-sibling::div[@class='sections-container']/child::div[11]//descendant::h2/span")).getText();
+        //user is able to see the "Cleaning & Janitorial Supplies" section
+        driver.findElement(By.xpath("//*[@class='navigation-desktop']//following-sibling::div[@class='sections-container']/child::div[12]//descendant::h2/span")).getText();
+        // verify the last text section should be "Collectible Knives and Swords" in the "other deals" page
+        String expectedText = "Collectible Knives and Swords";
+        String actualText = driver.findElement(By.xpath("//*[@class='navigation-desktop']//following-sibling::div[@class='sections-container']/child::div[13]//descendant::h2/span")).getText();
+        Assert.assertEquals(expectedText, actualText, "Not Match");
+        Thread.sleep(5000);
+    }
+
+    /**
+     * This test method will verify the "Datsun Cars & Trucks" page setup
+     *
+     * @throws InterruptedException
+     * @Author Israt
+     */
+
+    public static void datsunCarsAndTrucks() throws InterruptedException {
+        Thread.sleep(4000);
+        //user is able to click on the Motor button on top of the ebay homepage
+        driver.findElement(By.xpath("//*[@id='mainContent']//descendant::div/ul/li[3]/a[text()='Motors']")).click();
+        //user is able to click on the "Vehicle" button
+        driver.findElement(By.xpath("//*[@class='b-list__header']//following-sibling::ul/li[1]/button/span")).click();
+        // user is able to click on the "classic Car" button
+        driver.findElement(By.xpath("//*[@class='b-accordion-subtree']/li[2]/a[text()='Classic Cars']")).click();
+        //user is able to click on the "AMC" button under the "Shop by Make" Section
+        driver.findElement(By.xpath("//*[@class='section-title__title']//ancestor::section/ul/li/a[text()='AMC']")).click();
+        //user is able to click on the "BMW" button under the "AMC Cars and Trucks" Section
+        driver.findElement(By.xpath("//*[@class='section-title__title']//ancestor::section/ul/li/a[text()='BMW']")).click();
+        //user is able to click on the "Datsun" button under the "BMW Cars and Trucks" Section
+        driver.findElement(By.xpath("//*[@class='section-title__title']//ancestor::section/ul/li/a[text()='Datsun']")).click();
+        // after loading in the "Datsun Cars & Trucks" user is able to click on the "Coupe" button under the "Shop by Body Type" section
+        driver.findElement(By.xpath("//*[@class='carousel__viewport']//descendant::ul/li[2]/a")).click();
+        //in the Datsun page user is able to ckick on the right side of the box to organize the page view
+        driver.findElement(By.xpath("//*[@class='srp-controls__flyouts srp-controls__row-cells right clearfix']/child::div[2]/span/button")).click();
+        // user is able to click on the "List view" link to see the cgange of a new page set up
+        driver.findElement(By.xpath("//*[@class='srp-controls__flyouts srp-controls__row-cells right clearfix']/child::div[2]/span/span/ul/li/a")).click();
+        // user is able to click back in the menu box view section again
+        driver.findElement(By.xpath("//*[@class='srp-controls__flyouts srp-controls__row-cells right clearfix']/child::div[2]/span/button")).click();
+        String expectedText = "Gallery View";
+        //verify user is able to see the page setup option to go back to "Gallery View" againg
+        String actualText = driver.findElement(By.xpath("//*[@class='srp-controls__flyouts srp-controls__row-cells right clearfix']/child::div[2]/span/span/ul/li/a/span[text()='Gallery View']")).getText();
+        Assert.assertEquals(expectedText, actualText, "Not Match");
+        Thread.sleep(5000);
+
+    }
+
+    /**
+     * This test method will verify the ebay user is successfully sign-out
+     *
+     * @throws InterruptedException
+     * @Author Israt
+     */
+
+    public static void signOutFunctionality() throws InterruptedException {
+        //user ia able to click on the sign-in button
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@class='gh-t ']/span/a[text()='Sign in']")).click();
+        Thread.sleep(5000);
+        //user is able to successfully land on the sign-in page
+        // user is able to enter username of gmail in the first box where its says "Email or username"
+        driver.findElement(By.xpath("//*[@id='userid']")).sendKeys("jisrat19@gmail.com");
+        //user is able to click on the continue button
+        driver.findElement(By.xpath("//*[@id='signin-continue-btn']")).click();
+        //user ius able to click on the password box under the "Wellcome Box" and enter the valid password
+        driver.findElement(By.xpath("//*[@id='pass']")).sendKeys("London31");
+        //user is able to click on the sign in button
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//*[@id='sgnBt']")).click();
+        Thread.sleep(3000);
+        //user is able to click on the "Hi israt" on top of the ebay homepage
+        driver.findElement(By.xpath("//*[@id='gh-ug']")).click();
+        Thread.sleep(4000);
+        // user is able to click on the sign out button
+        driver.findElement(By.xpath("//*[@id='gh-uu']/li[5]/a[text()='Sign out']")).click();
+        // verify user is able to see this sign in option "" in the ebay home page after succesfully logged off
+        String expectedText = "Sign in";
+        String actualText = driver.findElement(By.xpath("//*[@class='gh-t ']/span/a[text()='Sign in']")).getText();
+        Assert.assertEquals(expectedText, actualText, "Not Match");
+        Thread.sleep(5000);
+
+    }
+
+
+    }
+
